@@ -1,6 +1,8 @@
 # Laravel Simple Calculator
 
-This is a simple calculator web application built with Laravel 11. It allows users to perform basic arithmetic calculations conveniently through a user-friendly interface.
+This project showcases a simple calculator application developed using Laravel, following the MVC architecture for clean code organization. It offers a user-friendly interface with real-time calculation capabilities, ensuring a seamless user experience. Server-side validation and data transfer objects maintain data integrity and security, while the calculator service encapsulates calculation logic in a modular and testable manner.
+
+It serves as a practical example of building web applications with Laravel, demonstrating features like routing, controller logic, form request validation, and service implementation. Easily extendable and customizable, it can be integrated into larger applications or tailored to specific requirements.
 
 ## Features
 
