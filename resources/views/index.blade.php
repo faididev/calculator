@@ -6,92 +6,48 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Calculator</title>
     <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
-    <style>
-        .calc-btn {
-            transition: background-color 0.3s ease;
-        }
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/css/toastr.min.css" rel="stylesheet">
 
-        .calc-btn:hover {
-            background-color: #f1f1f1;
-        }
 
-        .calc-container {
-            width: 320px;
-            background-color: #f1f1f1;
-            border-radius: 8px;
-            box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
-            overflow: hidden;
-        }
-
-        .display, .result {
-            width: 100%;
-            height: 80px;
-            background-color: #fafafa;
-            border: none;
-            padding: 0 16px;
-            font-size: 36px;
-            text-align: right;
-            outline: none;
-        }
-
-        .result {
-            height: 40px;
-            font-size: 16px;
-        }
-
-        .btn-container {
-            display: grid;
-            grid-template-columns: repeat(4, 1fr);
-            gap: 1px;
-        }
-
-        .btn {
-            background-color: #e0e0e0;
-            border: none;
-            padding: 16px;
-            font-size: 24px;
-            cursor: pointer;
-            transition: background-color 0.3s ease;
-        }
-
-        .btn:hover {
-            background-color: #f1f1f1;
-        }
-    </style>
 </head>
 
-<body class="bg-gray-200 h-screen flex justify-center items-center">
-    <div class="calc-container">
-        <input type="text" class="result" placeholder="0" id="resultScreen" disabled>
-        <input type="text" class="display" placeholder="0" id="display" disabled>
-        <div class="btn-container">
-            <button class="btn" onclick="appendToDisplay('7')">7</button>
-            <button class="btn" onclick="appendToDisplay('8')">8</button>
-            <button class="btn" onclick="appendToDisplay('9')">9</button>
-            <button class="btn" onclick="appendToDisplay('/')">/</button>
-            <button class="btn" onclick="appendToDisplay('4')">4</button>
-            <button class="btn" onclick="appendToDisplay('5')">5</button>
-            <button class="btn" onclick="appendToDisplay('6')">6</button>
-            <button class="btn" onclick="appendToDisplay('*')">*</button>
-            <button class="btn" onclick="appendToDisplay('1')">1</button>
-            <button class="btn" onclick="appendToDisplay('2')">2</button>
-            <button class="btn" onclick="appendToDisplay('3')">3</button>
-            <button class="btn" onclick="appendToDisplay('+')">+</button>
-            <button class="btn" onclick="appendToDisplay('0')">0</button>
-            <button class="btn" onclick="appendToDisplay('.')">.</button>
-            <button class="btn" onclick="clearDisplay()">C</button>
-            <button class="btn" onclick="appendToDisplay('-')">-</button>
-        </div>
-        <button class="btn w-full" onclick="appendToDisplay('=')">=</button>
+<body class="bg-gray-50 h-screen flex justify-center flex-col items-center">
+    <div>
+        <h1 class="mb-10 text-center text-4xl text-red-500">Laravel Simple Calculator v1.0</h1>
     </div>
+    <div class="w-80 bg-gray-100 rounded-lg shadow-md overflow-hidden">
+        <input type="text" class="w-full h-10 bg-white border-none px-4 py-2 text-2xl text-right outline-none" placeholder="0" id="resultScreen" disabled>
+        <input type="text" class="w-full h-20 bg-white border-none px-4 py-2 text-3xl text-right outline-none" placeholder="0" id="display" disabled>
+        <div class="grid grid-cols-4 gap-1">
+            <button class="calc-btn h-20 bg-gray-200 text-3xl transition duration-300 ease-in-out hover:bg-gray-300" onclick="appendToDisplay('7')">7</button>
+            <button class="calc-btn h-20 bg-gray-200 text-3xl transition duration-300 ease-in-out hover:bg-gray-300" onclick="appendToDisplay('8')">8</button>
+            <button class="calc-btn h-20 bg-gray-200 text-3xl transition duration-300 ease-in-out hover:bg-gray-300" onclick="appendToDisplay('9')">9</button>
+            <button class="calc-btn h-20 bg-gray-200 text-3xl transition duration-300 ease-in-out hover:bg-gray-300" onclick="appendToDisplay('/')">/</button>
+            <button class="calc-btn h-20 bg-gray-200 text-3xl transition duration-300 ease-in-out hover:bg-gray-300" onclick="appendToDisplay('4')">4</button>
+            <button class="calc-btn h-20 bg-gray-200 text-3xl transition duration-300 ease-in-out hover:bg-gray-300" onclick="appendToDisplay('5')">5</button>
+            <button class="calc-btn h-20 bg-gray-200 text-3xl transition duration-300 ease-in-out hover:bg-gray-300" onclick="appendToDisplay('6')">6</button>
+            <button class="calc-btn h-20 bg-gray-200 text-3xl transition duration-300 ease-in-out hover:bg-gray-300" onclick="appendToDisplay('*')">*</button>
+            <button class="calc-btn h-20 bg-gray-200 text-3xl transition duration-300 ease-in-out hover:bg-gray-300" onclick="appendToDisplay('1')">1</button>
+            <button class="calc-btn h-20 bg-gray-200 text-3xl transition duration-300 ease-in-out hover:bg-gray-300" onclick="appendToDisplay('2')">2</button>
+            <button class="calc-btn h-20 bg-gray-200 text-3xl transition duration-300 ease-in-out hover:bg-gray-300" onclick="appendToDisplay('3')">3</button>
+            <button class="calc-btn h-20 bg-gray-200 text-3xl transition duration-300 ease-in-out hover:bg-gray-300" onclick="appendToDisplay('+')">+</button>
+            <button class="calc-btn h-20 bg-gray-200 text-3xl transition duration-300 ease-in-out hover:bg-gray-300" onclick="appendToDisplay('0')">0</button>
+            <button class="calc-btn h-20 bg-gray-200 text-3xl transition duration-300 ease-in-out hover:bg-gray-300" onclick="appendToDisplay('.')">.</button>
+            <button class="calc-btn h-20 bg-gray-200 text-3xl transition duration-300 ease-in-out hover:bg-gray-300" onclick="clearDisplay()">C</button>
+            <button class="calc-btn h-20 bg-gray-200 text-3xl transition duration-300 ease-in-out hover:bg-gray-300" onclick="appendToDisplay('-')">-</button>
+        </div>
+        <button class="calc-btn h-20 btn-equals w-full bg-blue-500 text-white text-3xl transition duration-300 ease-in-out hover:bg-blue-600" onclick="appendToDisplay('=')">=</button>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@10"></script>
 
     <script>
         const displayScreen = document.getElementById('display');
         const resultScreen  = document.getElementById('resultScreen');
         let result          = 0;
         let lastOerator = "";
-        const operatorsReg  = /[+\-*\/=]$/
-        const numbersReg     = /^-?\d*\.?\d+$/
+        const operatorsReg  = /[+\-*\/=]$/;
+        const numbersReg     = /^-?\d*\.?\d*$/;
         const endWithOperator = /^\d+.*[+\-*\/=]$/;
 
         let processing = false;
@@ -116,13 +72,13 @@
                         await sendInput(result)
                     } else {
                         result = result.replace(operatorsReg, value);
-                        resultScreen.value = result
-                        console.log(result, value)
+                        resultScreen.value = result;
+                        console.log(result, value);
                     }
                 } else {
-                    resultScreen.value = displayScreen.value + value
-                    result = resultScreen.value
-                    secondInpNumber = displayScreen.value
+                    resultScreen.value = displayScreen.value + value;
+                    result = resultScreen.value;
+                    secondInpNumber = displayScreen.value;
                 }
                 lastOerator = value
             }
@@ -141,8 +97,8 @@
         }
 
         function splitExpression(expression) {
-            // Regular expression to match numbers and operators
-            const regex = /(\d+)([+\-*\/])(\d+)/;
+            const regex = /(-?\d*\.?\d+?)\s*([+\-*\/])\s*(-?\d*\.?\d*)/;
+
             const matches = expression.match(regex);
 
             if (matches) {
@@ -156,12 +112,18 @@
             }
         }
 
+        function clearDisplay() {
+            displayScreen.value = '';
+            resultScreen.value = '';
+            result = '';
+        }
+
         function sendInput(expression) {
             let {firstNumber, operator, secondNumber} = splitExpression(expression);
 
             if (operator && !isNaN(secondNumber)) {
                     processing=true
-                    fetch('/calculate', {
+                    fetch('/store', {
                             method: 'POST',
                             headers: {
                                 'Content-Type': 'application/json',
@@ -183,7 +145,12 @@
                         })
                         .catch(error => {
                             console.error('Error:', error);
-                            processing=false
+                            processing=false;
+                            Swal.fire({
+                                icon: 'error',
+                                title: 'Oops...',
+                                text: 'An error occurred. Please try again later.'
+                            });
                         });
                 }
         }
@@ -192,4 +159,3 @@
 </body>
 
 </html>
-

@@ -22,9 +22,9 @@ class CalculateRequest extends FormRequest
     public function rules(): array
     {
         return [
-            'firstNumber' => ['required', 'numeric'],
+            'firstNumber' => ['required', 'numeric','regex:/^\d+(\.\d+)?$/'],
             'operator' => ['required', 'in:+,-,/,*,='],
-            'secondNumber' => ['required', 'numeric'],
+            'secondNumber' => ['required', 'numeric','regex:/^\d+(\.\d+)?$/'],
         ];
     }
 }

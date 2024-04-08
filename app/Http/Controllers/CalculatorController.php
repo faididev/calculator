@@ -17,7 +17,7 @@ class CalculatorController extends Controller
         return view('index');
     }
 
-    public function calculate(CalculateRequest $request)
+    public function store(CalculateRequest $request)
     {
         try {
             $validated = new CalculateDto(...$request->validated());

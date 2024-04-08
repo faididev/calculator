@@ -1,5 +1,6 @@
 <?php
-namespace app\Services;
+
+namespace App\Services;
 
 use App\Data\CalculateDto;
 
@@ -10,27 +11,19 @@ class CalculatorService
         $firstNumber = $data->firstNumber;
         $operator = $data->operator;
         $secondNumber = $data->secondNumber;
+
         switch ($operator) {
             case '+':
-                $result = $firstNumber + $secondNumber;
-                break;
+                return $this->add($firstNumber, $secondNumber);
             case '-':
-                $result = $firstNumber - $secondNumber;
-                break;
+                return $this->subtract($firstNumber, $secondNumber);
             case '*':
-                $result = $firstNumber * $secondNumber;
-                break;
+                return $this->multiply($firstNumber, $secondNumber);
             case '/':
-                if ($secondNumber == 0) {
-                    return response()->json(['error' => 'Division by zero'], 400);
-                }
-                $result = $firstNumber / $secondNumber;
-                break;
+                return $this->divide($firstNumber, $secondNumber);
             default:
-                return throw('invalid');
+                throw new \InvalidArgumentException("Invalid operator");
         }
-
-        return $result;
     }
 
     private function add($num1, $num2)
